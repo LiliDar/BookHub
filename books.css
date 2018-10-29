@@ -7,6 +7,7 @@ body {
     flex-direction: row;
     flex-flow: wrap;
     justify-content: center;
+    margin-top: 9%;
 }
 
 .lang,
@@ -29,7 +30,7 @@ body {
 }
 
 .jumbotron {
-    margin-top: 2%;
+    margin-top: -3.7%;
     background-color: darkgray;
 }
 
@@ -39,19 +40,13 @@ body {
     margin-top: -4%;
 }
 
-p {
-    font-size: 50pt;
-    align-self: flex-end;
-    font-family: 'KoHo', sans-serif;
-    color: darkslategrey;
-}
-
 .flip-card {
     background-color: transparent;
     width: 300px;
     height: 400px;
     perspective: 1000px;
     margin: 10px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .flip-card-inner {
@@ -89,12 +84,18 @@ p {
     z-index: 1;
 }
 
-.search-btn {
-    display: flex;
-    justify-content: center;
-    margin-bottom: -8.4%;
+.btn {
+    margin-top: 15%;
 }
 
-button {
-    font-family: Arial;
+.search-engine {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -8.5%;
+    font-family: 'Raleway', sans-serif;
+}
+
+footer {
+    margin-top: 5%;
 }

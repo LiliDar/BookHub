@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=KoHo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="books.css">
@@ -18,50 +18,51 @@ portada: cover page
 descripcion: description
 -->
 
-
 <body>
     <header>
         <div class="header container">
             <img class="book-logo" alt="book logo" src="Boohkub-Logo.png">
         </div>
-
-        <form class="search-btn">
-            <input v-model="searchText" @keyup="searchData">
-            <button type="submit">Search</button>
-        </form>
         <div class="jumbotron"></div>
     </header>
 
     <div id="app">
+        <div class="search-engine">
+            <input type="text" v-model="search" placeholder="Search for titles..." />
+        </div>
+
         <div class="container flex-container">
-            <div class="flip-card" v-for="book in booksArray">
+            <div class="flip-card" v-for="book in filteredBooks">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img class="book-cover" v-bind:src="book.portada">
                     </div>
                     <div class="title flip-card-back">
-                        <div>{{book.titulo}}
-                            <div class="lang">
-                                {{book.descripcion}}
-                            </div>
+                        <div>
+                            <h4>{{book.titulo}}</h4>
                         </div>
+                        <div class="lang">{{book.descripcion}}</div>
+                        <a data-fancybox="gallery" :href="book.detalle"><button type="button" class="btn btn-dark text-uppercase">More Info!</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="jumbotron"></div>
+    </footer>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="books.js"></script>
-    
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="books.js"></script>
+
+</body>
 
 </html>
