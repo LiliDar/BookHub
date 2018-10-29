@@ -35,9 +35,12 @@ var app = new Vue({
         filteredBooks: function () {
 
             return this.booksArray.filter((book) => {
+                
                 var newSearch = this.search.toLocaleLowerCase();
                 var bookTitles = book.titulo.toLowerCase();
-                return bookTitles.match(this.search) || 
+                var bookDescription = book.descripcion.toLowerCase();
+                
+                return bookTitles.match(this.search) || bookDescription.match(this.search)
             });
         }
     },
